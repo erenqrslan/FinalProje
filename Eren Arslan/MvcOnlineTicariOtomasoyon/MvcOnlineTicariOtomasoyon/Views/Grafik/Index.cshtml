@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+@{
+    var grafik = new Chart(width: 500, height: 500);//Oluşturulacak grafiğin boyutları
+    grafik.AddTitle(text: "Kategori ve Ürün Sayıları");
+    grafik.AddLegend(title: "Değerler");
+    grafik.AddSeries(
+        name: "Veriler",
+        chartType: "Pie",//Grafil türlerünü belirtiriz örn: Pei,Doughnut,Area,Bar: Pie tam yuvarlak, doughnut ortası bos yuvarlak Area: şekilli, bar: normalin tam tersi
+        xValue: new[] { "Beyaz Eşya", "Televizyon", "Bilgisayar", "Kücük Ev Aletleri" },
+        yValues: new[] { 500, 250, 340, 620 });
+    //x kordinatı grafiğin isimlerin yer alcağı kısım, y kordinatıda bu isimlerin değerleridir
+    grafik.Write();
+}
