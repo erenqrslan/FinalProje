@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<br />
+<button class="btn btn-primary" id="btn1">Button1</button>
+<button class="btn btn-warning" id="btn2">Button2</button>
+<button class="btn btn-info" id="btn3">Button3</button>
+<button class="btn btn-danger" id="btn4">Button4</button>
+<button class="btn btn-outline-primary" id="btn5">Button5</button>
+<script>
+    $('#btn1').click(function () {
+        swal("Sadece İçerik");
+    });
+</script>
+<script>
+    $('#btn2').click(function () {
+        swal("Başlık!", "Yazılacak İçerik");
+    });
+</script>
+<script>
+    $('#btn3').click(function () {
+        swal("Good job!", "You clicked the button!", "success");
+    });
+</script>
+<script>
+    $('#btn4').click(function () {
+        swal("1.Mesaj")
+            .then((value) => {
+                swal(`Sonuç ${value}`);
+            });
+    });
+</script>
+<script>
+    $('#btn5').click(function () {
+        swal({
+            title: "Eminmisin",
+            text: "Dosyan Silinecek",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Dosyan Silindi", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Dosyan Silinmedi");
+                }
+            });
+    });
+</script>
+
+

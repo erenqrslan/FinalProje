@@ -1,0 +1,28 @@
+﻿@using MvcOnlineTicariOtomasoyon.Models.Siniflar
+@model List<KargoTakip>
+@{
+    ViewBag.Title = "CariKargoTakip";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Adımlar</th>
+        <th>Acıklama</th>
+        <th>Tarih</th>
+
+        @*Bu kısımdan carilari daha önce yaptığı satın alma işlemlerini görüntülenecek*@
+    </tr>
+    @{ int i = 0;}
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@{i++;} @i</td>
+            <td>@x.Aciklama</td>
+            <td>@x.TarihZaman</td>
+        </tr>
+    }
+</table>
+
+
